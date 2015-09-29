@@ -1,0 +1,20 @@
+* {
+	background-color: lightBlue;
+}
+
+body {
+
+	font-family:  Helvetica;
+}
+
+#typedName {
+	font-style: italic;
+	background-color: white;
+	border-radius: 1em;
+}
+
+#typedPassword {
+	font-style: italic;
+	background-color: white;
+	border-radius: 1em;
+}
