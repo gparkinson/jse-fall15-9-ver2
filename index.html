@@ -89,26 +89,148 @@
         <!-- login and user info -->
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3" id="login">User Login and Information</div>
+            <div class="col-md-6" id="login">User Login and Information</div>
         </div>
 
         <!-- Issue lists -->
         <div class="row">
-            <div class="col-md-6 portfolio-item" >
-               <h3>
+            <div class="col-lg-6 portfolio-item" >
+               	<h3>
                     <a href="#">My Issues</a>
                 </h3>
                 <p>Issues assigned to me or that I created.</p> 
-                <div class = "table table-striped" id="myIssues">
-                    <thead><tr><th>Task Title</th><th>Status</th><th>Assignee</th><th>Creator</th>/</tr></thead>
-                </div> 
-            <div class="col-md-6 portfolio-item" id="openIssues">
+                <div>
+                    <div class="col-lg-3 task_header">Title</div>
+                    <div class="col-lg-3 task_header">Status</div>
+                    <div class="col-lg-3 task_header">Assignee</div>
+                    <div class="col-lg-3 task_header">Creator</div>
+                    <div class="clear"></div>
+                </div>
+                <div id="user_issues_list">
+                    
+                </div>                                          
+            </div>
+
+            <div class="col-md-6 portfolio-item">
                 <h3>
                     <a href="#">Unassigned Issues</a>
                 </h3>
-                <p>All issues that have not been assigned (could include those I created.)</p><a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
+                <p>All issues that have not been assigned (could include those I created.)</p>
+                <div>
+                    <div class="col-lg-3 task_header">Title</div>
+                    <div class="col-lg-3 task_header">Status</div>
+                    <div class="col-lg-3 task_header">Assignee</div>
+                    <div class="col-lg-3 task_header">Creator</div>
+                    <div class="clear"></div>
+                </div>
+                <div id="unassigned_issues_list">
+                    
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div>    
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div>  
+                    <div class="even">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div> 
+                    <div class="odd">
+                        <div class="col-lg-3 task_item">Bug #12</div>
+                        <div class="col-lg-3 task_item">Open</div>
+                        <div class="col-lg-3 task_item">G Parkinson</div>
+                        <div class="col-lg-3 task_item">E Lijoi</div>
+                        <div class="clear"></div>
+                    </div>    
+                </div>                                     
                 
             </div>
         </div>

@@ -1,13 +1,42 @@
 var GUI = (function(){ //IIFE for all Views
 
+var counter = 0;
+
 var IssueView = Backbone.View.extend({
   render: function () {
-		var title = this.model.get("title");
-		var description = this.model.get("description");
-		var creator = this.model.get("creator");
-		var assignee = this.model.get("assignee");
-		var status = this.model.get("status");
-        this.$el.html("<tr><td>" + title + "</td><td>" + status + "</td><td>" + assignee + "</td><td>" + creator + "</td></tr>");
+
+			var title = this.model.get("title");
+			var description = this.model.get("description");
+			var creator = this.model.get("creator");
+			var assignee = this.model.get("assignee");
+			var status = this.model.get("status");
+			
+			var cl;
+			if ((counter%2)==0) {
+				cl = "even";	
+			} else {
+				cl = "odd";	
+			}
+			
+			var html = $("<div class='" + cl + "'></div>");
+			var t = "<div class='col-lg-3 task_item'>" + title + "</div>";
+			var s = "<div class='col-lg-3 task_item'>" + status + "</div>";
+			var a = "<div class='col-lg-3 task_item'>" + assignee + "</div>";
+			var c = "<div class='col-lg-3 task_item'>" + creator + "</div>";
+			
+			html.append(t);
+			html.append(s);
+			html.append(a);
+			html.append(c);
+			
+			var clear = "<div class='clear'></div>";
+			
+			html.append(clear);
+			
+			counter++;
+			
+	        this.$el.html(html);
+	    
     },
 });
 
@@ -26,20 +55,40 @@ var CreateTaskView = Backbone.View.extend({
 
 var UnassignedTasksView = Backbone.View.extend({
 	render: function () {
-		var issues = this.collection;
+	var issues = this.collection;
 		var self = this;
-		this.$el.append("<tbody>");
 		issues.forEach(function(issue){
-			var issueView = new IssueView({model: issue});
-			issueView.render();
-			self.$el.append(issueView.$el);
+			var status = issue.get("status");
+			console.log(status);
+			if (status == "unassigned") {
+				var issueView = new IssueView({model: issue});
+				issueView.render();
+				self.$el.append(issueView.$el);
+			};
 		});
-		this.$el.append("</tbody>");
 	}
 });
 
 var UserTasksView = Backbone.View.extend({
+	render: function () {
+		var issues = this.collection;
+		var currentUser = this.currentUser;
+		var self = this;
+	//	console.log("collection self" + self.currentUser);
+		issues.forEach(function(issue){
+			var currentUser = self.currentUser;
 
+	//		console.log("foreach currentuser" + currentUser);
+			var creator = issue.get("creator");
+			var assignee = issue.get("assignee");
+
+			if ((creator == currentUser) || (assignee == currentUser)) {
+				var issueView = new IssueView({model: issue});
+				issueView.render();
+				self.$el.append(issueView.$el);
+			};
+		});
+	}
 });
 
 var UserView = Backbone.View.extend({
@@ -52,9 +101,9 @@ var UserView = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		console.log(this.collection);
-		console.log(this.collection.findWhere({status: 'unassigned'}));
-		console.log('hello');
+//		console.log(this.collection);
+//		console.log(this.collection.findWhere({status: 'unassigned'}));
+///		console.log('hello');
 		this.render();
 	},
 
@@ -121,9 +170,18 @@ var LoginView = Backbone.View.extend ({
 
 // generic ctor to represent interface:
 function GUI(users,issues,el) {
+
+	var userTasks = new UserTasksView({collection: issues});
+	userTasks.currentUser = "Person1";
+//	console.log(userTasks.currentUser);
+	userTasks.render();
+	$("#user_issues_list").html("");
+	$("#user_issues_list").append(userTasks.$el);
+	
 	var unAssignedTasks = new UnassignedTasksView({collection: issues});
 	unAssignedTasks.render();
-	$("#myIssues").append(unAssignedTasks.$el);
+	$("#unassigned_issues_list").html("");
+	$("#unassigned_issues_list").append(unAssignedTasks.$el);
 
 	var login = new LoginView({collection: users});
 	login.render();

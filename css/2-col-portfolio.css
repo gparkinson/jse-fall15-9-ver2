@@ -36,11 +36,38 @@ footer {
 	float: left;
 }
 
-.myClear {
+.clear {
 	float: none;
 	clear: both;
 }
 
-.issueScrollBox {
-	
+.task_header {
+	text-align: left;
+	font-weight: bold;
+	padding-left: 0px;
+	font-size: 16px;
+	border-bottom: 1px solid #000;
+}
+
+.task_item {
+	text-align: left;
+	font-weight: bold;
+	padding-left: 0px;
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+.odd {
+	background-color: #CFF;	
+}
+
+.even {
+	background-color: #FCF;	
+}
+
+#issues_list {
+	height: 300px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+		
 }
